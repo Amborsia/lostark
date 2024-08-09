@@ -32,4 +32,10 @@ export class LostarkController {
   async getMarketsOptions() {
     return this.lostarkService.getMarkets();
   }
+
+  // 어비스
+  @Get('gamecontents/challenge-abyss-dungeons')
+  async getAbyss() {
+    return this.lostarkService.getAbyss();
+  }
 }

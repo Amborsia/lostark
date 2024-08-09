@@ -26,4 +26,22 @@ export class LostarkService {
       throw error;
     }
   }
+
+  async getCharacterArmories(characterName: string, url: string): Promise<any> {
+    try {
+      const response = await axios.get(
+        `${this.baseURL}/armories/characters/${characterName}${url}`,
+        {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${this.bearerToken}`,
+          },
+        },
+      );
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching character siblings: ', error);
+      throw error;
+    }
+  }
 }

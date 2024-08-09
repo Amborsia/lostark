@@ -9,4 +9,12 @@ export class LostarkController {
   async getCharacterSiblings(@Param('characterName') characterName: string) {
     return this.lostarkService.getCharacterSiblings(characterName);
   }
+
+  @Get('/armories/characters/:characterName/collectibles')
+  async getCollectables(@Param('characterName') characterName: string) {
+    return this.lostarkService.getCharacterArmories(
+      characterName,
+      '/collectibles',
+    );
+  }
 }

@@ -22,4 +22,14 @@ export class LostarkController {
   async getAuctions() {
     return this.lostarkService.getAcution();
   }
+
+  @Get('/markets/items/:itemId')
+  async getMarketsItems(@Param('itemId') itemId: number) {
+    return this.lostarkService.getItems(`${itemId}`);
+  }
+
+  @Get('/markets/options')
+  async getMarketsOptions() {
+    return this.lostarkService.getMarkets();
+  }
 }

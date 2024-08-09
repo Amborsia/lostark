@@ -59,4 +59,36 @@ export class LostarkService {
       throw error;
     }
   }
+
+  async getMarkets(): Promise<any> {
+    try {
+      const response = await axios.get(`${this.baseURL}/markets/options`, {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${this.bearerToken}`,
+        },
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching getMarkets: ', error);
+      throw error;
+    }
+  }
+
+  async getItems(url: string): Promise<any> {
+    try {
+      const response = await axios.get(`${this.baseURL}/markets/items/${url}`, {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${this.bearerToken}`,
+        },
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching getItems: ', error);
+      throw error;
+    }
+  }
 }

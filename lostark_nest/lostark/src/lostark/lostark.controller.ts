@@ -17,4 +17,9 @@ export class LostarkController {
       '/collectibles',
     );
   }
+
+  @Get('/auctions/options')
+  async getAuctions() {
+    return this.lostarkService.getAcution();
+  }
 }

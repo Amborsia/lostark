@@ -40,7 +40,22 @@ export class LostarkService {
       );
       return response.data;
     } catch (error) {
-      console.error('Error fetching character siblings: ', error);
+      console.error('Error fetching getCharacterArmories: ', error);
+      throw error;
+    }
+  }
+
+  async getAcution(): Promise<any> {
+    try {
+      const response = await axios.get(`${this.baseURL}/auctions/options`, {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${this.bearerToken}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching auction: ', error);
       throw error;
     }
   }

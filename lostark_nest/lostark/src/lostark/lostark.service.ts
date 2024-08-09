@@ -110,4 +110,23 @@ export class LostarkService {
       throw error;
     }
   }
+
+  async getGuardian(): Promise<any> {
+    try {
+      const response = await axios.get(
+        `${this.baseURL}/gamecontents/challenge-guardian-raids`,
+        {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${this.bearerToken}`,
+          },
+        },
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching getMarkets: ', error);
+      throw error;
+    }
+  }
 }

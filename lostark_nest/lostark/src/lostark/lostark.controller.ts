@@ -38,4 +38,10 @@ export class LostarkController {
   async getAbyss() {
     return this.lostarkService.getAbyss();
   }
+
+  // 가디언 레이드
+  @Get('gamecontents/challenge-guardian-raids')
+  async getGuardian() {
+    return this.lostarkService.getGuardian();
+  }
 }

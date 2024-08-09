@@ -44,4 +44,10 @@ export class LostarkController {
   async getGuardian() {
     return this.lostarkService.getGuardian();
   }
+
+  // 캘린더
+  @Get('gamecontents/calendar')
+  async getCalendar() {
+    return this.lostarkService.getCalendar();
+  }
 }

@@ -129,4 +129,23 @@ export class LostarkService {
       throw error;
     }
   }
+
+  async getCalendar(): Promise<any> {
+    try {
+      const response = await axios.get(
+        `${this.baseURL}/gamecontents/calendar`,
+        {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${this.bearerToken}`,
+          },
+        },
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching getCalendar: ', error);
+      throw error;
+    }
+  }
 }

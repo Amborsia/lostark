@@ -148,4 +148,24 @@ export class LostarkService {
       throw error;
     }
   }
+
+  async postMarket(searchOptions: string): Promise<any> {
+    try {
+      const response = await axios.post(
+        `${this.baseURL}/markets/items`,
+        searchOptions,
+        {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${this.bearerToken}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching getCalendar: ', error);
+      throw error;
+    }
+  }
 }

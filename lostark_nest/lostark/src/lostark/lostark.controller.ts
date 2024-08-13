@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 import { LostarkService } from './lostark.service';
 
 @Controller('lostark')
@@ -49,5 +49,10 @@ export class LostarkController {
   @Get('gamecontents/calendar')
   async getCalendar() {
     return this.lostarkService.getCalendar();
+  }
+
+  @Post('markets/items')
+  async postItems(@Body() searchOptions: string) {
+    return this.lostarkService.postMarket(searchOptions);
   }
 }
